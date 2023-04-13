@@ -14,8 +14,8 @@ install:
 build: 
 	@echo "Building $(APP_NAME) $(VERSION)..."
 	go build \
-    	-ldflags "-s -w -X $(PKG_NAME)/internal/config.Version=$(VERSION) \
-        -X $(PKG_NAME)/internal/config.CommitHash=$(COMMIT_HASH)" \
+    	-ldflags "-s -w -X $(PKG_NAME)/config/config.Version=$(VERSION) \
+        -X $(PKG_NAME)/config/config.CommitHash=$(COMMIT_HASH)" \
         -o $(BIN_NAME) \
     	$(PKG_NAME)
 
@@ -26,8 +26,8 @@ run: all
 build-debug:
 	@echo "Building $(APP_NAME) $(VERSION) for debugging..."
 	@go build \
-		-ldflags "-X $(PKG_NAME)/internal/config.Version=$(VERSION) \
-		  -X $(PKG_NAME)/internal/config.CommitHash=$(COMMIT_HASH)" \
+		-ldflags "-X $(PKG_NAME)/config/config.Version=$(VERSION) \
+		  -X $(PKG_NAME)/config/config.CommitHash=$(COMMIT_HASH)" \
 		-gcflags "all=-N -l" \
 		-o $(BIN_NAME) \
 		$(PKG_NAME)
