@@ -13,7 +13,7 @@ install:
 
 build: 
 	@echo "Building $(APP_NAME) $(VERSION) ..."
-	go build \
+	@go build \
     	-ldflags "-s -w -X $(PKG_NAME)/config.Version=$(VERSION) \
         -X $(PKG_NAME)/config.CommitHash=$(COMMIT_HASH)" \
         -o $(BIN_NAME) \
