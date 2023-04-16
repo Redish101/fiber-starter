@@ -33,3 +33,6 @@ build-debug:
 
 dev: build-debug
 	$(BIN_NAME) $(ARGS)
+
+build-docker:
+	docker build -t fiber-starter .
